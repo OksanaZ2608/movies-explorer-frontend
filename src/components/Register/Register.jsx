@@ -92,4 +92,4 @@ function Register({ onRegister }) {
         </AuthPage >)
 }
 
-export default Register
+export default Register;

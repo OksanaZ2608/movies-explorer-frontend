@@ -1,7 +1,8 @@
 @import url(./vendor/normalize.css);
-@import url(./vendor/fonts/inter.css);
+@import url(./vendor/fonts/Inter/inter.css);
 
 @import url(./components/App/App.css);
+@import url(./components/App/__content/app__content.css);
 
 @import url(./components/Header/Header.css);
 @import url(./components/Header/__account/header__account.css);
@@ -22,6 +23,7 @@
 @import url(./components/Header/__menu/_theme/header__menu_theme_horizontal.css);
 @import url(./components/Header/__navtab/header__navtab.css);
 @import url(./components/Header/__navtab/_active/header__navtab_active.css);
+@import url(./components/Header/__navtab-item/header__navtab-item.css);
 @import url(./components/Header/_theme/header_theme_white.css);
 
 @import url(./components/Main/AboutMe/AboutMe.css);
