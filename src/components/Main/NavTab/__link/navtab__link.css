@@ -1,0 +1,14 @@
+.navtab__link {
+    color: #FFF;
+    text-decoration: none;
+    border-bottom: 1.5px solid #FFF;
+    line-height: 1;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width:320px) {
+    .navtab__link {
+        font-size: 0.6875rem;
+    }
+}
