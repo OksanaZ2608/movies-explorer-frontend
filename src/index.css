@@ -90,6 +90,7 @@
 @import url(./components/Movies/__slider/_switch-on/movies__slider_switch-on.css);
 @import url(./components/Movies/__switch-container/movies__switch-container.css);
 @import url(./components/Movies/__switch/movies__switch.css);
+@import url(./components/Movies/Preloader/Preloader.css);
 
 @import url(./components/SavedMovies/SavedMovies.css);
 
