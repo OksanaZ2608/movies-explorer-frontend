@@ -8,6 +8,7 @@
     justify-content: space-between;
     align-items: baseline;
     border-bottom: 1px solid #E6E6E6;
+    gap: 20px;
 }
 
 .portfolio__line:nth-last-child(1) {

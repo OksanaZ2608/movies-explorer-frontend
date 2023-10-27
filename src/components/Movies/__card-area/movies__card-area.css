@@ -11,9 +11,10 @@
     column-gap: 30px;
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:1280px) {
     .movies__card-area {
         row-gap: 47px;
+        justify-content: left;
     }
 }
 

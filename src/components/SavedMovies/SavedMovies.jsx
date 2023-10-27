@@ -19,7 +19,7 @@ function SavedMovies() {
                 <ul className="movies__card-area">
                     {cards.map(data => {
                         return (
-                            <li className="card" > key={data._id}
+                            <li className="card" key={data._id}>
                                 <Card
                                     card={data}
                                     name='fav' />

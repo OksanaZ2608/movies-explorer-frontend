@@ -5,7 +5,7 @@ function Card({ name, card }) {
     const [mark, setMark] = useState(false);
 
     return (
-        <div className="card__container">
+        <section className="card__container">
             <img
                 className="card__image"
                 src={card.link}
@@ -22,7 +22,7 @@ function Card({ name, card }) {
                 >{!mark ? "Сохранить" : ""}</button>}
             <h2 className="card__title">{card.name}</h2>
             <span className="card__duration">{card.duration}</span>
-        </div>
+        </section>
     )
 }
 

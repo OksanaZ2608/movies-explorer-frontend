@@ -27,13 +27,13 @@ function Header({ name }) {
                 </nav> :
                 <>
                     <nav className={!menuActive ? "header__menu" : "header__menu header__menu_active header__menu_opened"} >
-                        <ul className={!menuActive ? 'header__navtab' : "header__navtab header__navtab_active"}>
-                            <img
+                    <img
                                 className={menuActive ? "header__menu-close header__menu-close_active" : "header__menu-close"}
                                 src={close}
                                 alt="Закрыть"
                                 onClick={() => setMenuActive(!menuActive)}
                             />
+                        <ul className={!menuActive ? 'header__navtab' : "header__navtab header__navtab_active"}>
                             <li className='header__navtab-item'>
                                 <Link to={"/"} className={menuActive ? "header__link header__link_theme_vertical" : "header__link"}>Главная</Link></li>
                             <li className='header__navtab-item'>

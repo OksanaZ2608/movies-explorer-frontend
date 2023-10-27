@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom"
-
 function Profile() {
     return (
         <main className="main">
             <section className="profile">
-                <h1 className="profile__greeting">Привет, Оксана!</h1>
+                <p className="profile__greeting">Привет, Оксана!</p>
                 <table className="profile__table">
                     <tr className="profile__line">
                         <td className="profile__cell-name">Имя</td>
@@ -15,8 +13,8 @@ function Profile() {
                         <td className="profile__cell-content">pochta@yandex.ru</td>
                     </tr>
                 </table>
-                <Link to={"#"} className="profile__edit">Редактировать</Link>
-                <Link to={"/"} className="profile__logout">Выйти из аккаунта</Link>
+                <button className="profile__edit" type="submit" >Редактировать</button>
+                <button className="profile__logout" type="button">Выйти из аккаунта</button>
             </section>
         </main>
     )

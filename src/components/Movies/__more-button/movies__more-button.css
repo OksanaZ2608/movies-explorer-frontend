@@ -12,6 +12,7 @@
     line-height: 1.2;
     font-size: 0.75rem;
     font-weight: 500;
+    cursor: pointer;
 }
 
 @media screen and (max-width:768px) {
