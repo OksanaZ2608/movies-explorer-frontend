@@ -1,0 +1,23 @@
+.about-project__chart-caption {
+    margin: 0;
+    margin-top: 14px;
+    padding: 0;
+    text-align: center;
+    color: #A0A0A0;
+    line-height: 1.2;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width:590px) {
+    .about-project__chart-caption {
+        line-height: 1.2;
+        font-size: 0.687rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-project__chart-caption {
+        margin-top: 9px;
+    }
+}

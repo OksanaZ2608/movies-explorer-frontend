@@ -1,0 +1,24 @@
+.about-project__text {
+    margin: 0;
+    padding: 0;
+    margin-top: 26px;
+    line-height: 1.4;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+@media screen and (max-width:768px) {
+    .about-project__text {
+        line-height: 1.5;
+        margin-top: 23px;
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-width:740px) {
+    .about-project__text {
+        line-height: 1.45;
+        margin-top: 16px;
+        font-size: 0.68rem;
+    }
+}

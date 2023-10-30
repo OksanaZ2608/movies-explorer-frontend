@@ -1,0 +1,39 @@
+.profile__save-button {
+    margin: 0;
+    padding: 0;
+    background-color: #4285F4;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: normal;
+    color: #FFFFFF;
+    width: 410px;
+    height: 45px;
+    cursor: pointer;
+    align-self: center;
+    border: none;
+    justify-content: center;
+    margin-top: 223px;
+}
+
+.profile__save-button:hover {
+    opacity: .8;
+}
+
+.profile__save-button:disabled {
+    color: #C2C2C2;
+    background: #F8F8F8;
+    cursor: not-allowed;
+}
+
+@media screen and (max-width:420px) {
+    .profile__save-button {
+        max-width: 320px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .profile__save-button {
+        max-width: 250px;
+    }
+}

@@ -1,0 +1,22 @@
+.about-project {
+    height: 608px;
+    display: grid;
+}
+
+@media screen and (max-width:768px) {
+    .about-project {
+        height: 585px;
+    }
+}
+
+@media screen and (max-width:445px) {
+    .about-project {
+        height: 750px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .about-project {
+        height: 641px;
+    }
+}
