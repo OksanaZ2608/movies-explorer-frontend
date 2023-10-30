@@ -115,6 +115,9 @@
 @import url(./components/Profile/__line/profile__line.css);
 @import url(./components/Profile/__logout/profile__logout.css);
 @import url(./components/Profile/__table/profile__table.css);
+@import url(./components/Profile/__save-button/profile__save-button.css);
+@import url(./components/Profile/__message/profile__message.css);
+@import url(./components/Profile/__buttons/profile__buttons.css);
 
 @import url(./components/NotFound/NotFound.css);
 @import url(./components/NotFound/__button/notfound__button.css);

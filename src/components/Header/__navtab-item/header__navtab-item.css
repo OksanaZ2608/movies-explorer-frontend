@@ -15,12 +15,12 @@
 
 @media screen and (max-width:768px) {
     .header__navtab-item:last-child {
-        margin-top: 594px;
+        margin-top: 370px;
     }
 }
 
 @media screen and (max-width:320px) {
     .header__navtab-item:last-child {
-        margin-top: 420px;
+        margin-top: 350px;
     }
 }
