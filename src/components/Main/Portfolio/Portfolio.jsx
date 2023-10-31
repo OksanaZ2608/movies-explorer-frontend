@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import link from "../../../images/link.svg";
 
 function Portfolio() {
@@ -7,18 +6,32 @@ function Portfolio() {
             <h2 className="portfolio__title">Портфолио</h2>
             <ul className="portfolio__container">
                 <li className="portfolio__line">
-                    <Link to={"https://oksanaz2608.github.io/how-to-learn_pr_oz/"} className="portfolio__link" target="_blank">
-                        <p className="portfolio__name">Статичный сайт</p></Link>
+                    <a
+                        className="portfolio__link"
+                        href="https://oksanaz2608.github.io/how-to-learn_pr_oz/"
+                        target="blank">
+                        <p className="portfolio__name">Статичный сайт</p>
+                    </a>
                     <img className="portfolio__icon" src={link} alt="Ссылка" />
                 </li>
                 <li className="portfolio__line">
-                    <Link to={"https://oksanaz2608.github.io/russian-travel-oks.z/index.html"} className="portfolio__link" target="_blank">
-                        <p className="portfolio__name">Адаптивный сайт</p></Link>
-                        <img className="portfolio__icon" src={link} alt="Ссылка" />
+                    <a
+                        className="portfolio__link"
+                        href="https://oksanaz2608.github.io/russian-travel-oks.z/index.html"
+                        target="blank"
+                    >
+                        <p className="portfolio__name">Адаптивный сайт</p>
+                    </a>
+                    <img className="portfolio__icon" src={link} alt="Ссылка" />
                 </li>
                 <li className="portfolio__line">
-                    <Link to={"https://oksanaz2608.github.io/mesto/"} className="portfolio__link" target="_blank">
-                        <p className="portfolio__name">Одностраничное приложение</p></Link>
+                    <a
+                        className="portfolio__link"
+                        href="https://oksanaz2608.github.io/mesto/"
+                        target="blank"
+                    >
+                        <p className="portfolio__name">Одностраничное приложение</p>
+                    </a>
                     <img className="portfolio__icon" src={link} alt="Ссылка" />
                 </li>
             </ul>
@@ -26,4 +39,4 @@ function Portfolio() {
     )
 }
 
-export default Portfolio
+export default Portfolio;

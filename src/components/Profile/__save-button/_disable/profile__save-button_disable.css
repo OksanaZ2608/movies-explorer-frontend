@@ -1,0 +1,29 @@
+.profile__save-button_disable {
+    margin: 0;
+    padding: 0;
+    color: #C2C2C2;
+    background: #F8F8F8;
+    cursor: not-allowed;
+    width: 410px;
+    height: 45px;
+    cursor: pointer;
+    align-self: center;
+    border: none;
+    justify-content: center;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: normal;
+}
+
+@media screen and (max-width:420px) {
+    .profile__save-button_disable {
+        max-width: 320px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .profile__save-button_disable {
+        max-width: 250px;
+    }
+}
