@@ -21,7 +21,7 @@ function App() {
   //Состояния(стейты) данных авторизации 
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false);
 
   // Состояние пользователя 
   const [currentUser, setCurrentUser] = useState({});
@@ -191,6 +191,7 @@ function App() {
                     isSend={isSend}
                     setIsError={setIsError}
                     isError={isError}
+                    
                   />
               } />
 

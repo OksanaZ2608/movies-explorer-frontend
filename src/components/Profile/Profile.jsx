@@ -1,14 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import ProfileForm from "../ProfileForm/ProfileForm";
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+import { EMAIL_PATTERN } from "../../constants/constants";
 
 function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIsSuccess }) {
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
-    const [isEdit, setIsEdit] = useState(false)
+    const [isEdit, setIsEdit] = useState(false);
+    const [emailFormError, setEmailFormError] = useState(" ");
 
-    function validateEmail(email) {
-        if (currentUser.email === email || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    function validateEmail(target) {
+        if (currentUser.email === target.value){
             setIsEdit(false)
         } else {
             setIsEdit(true)
@@ -41,6 +43,7 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
                 setUserName(evt.target.value);
                 validateUserName(evt.target.value);
             },
+            errorMesage: '',
             key: 1
         },
         {
@@ -50,18 +53,22 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
             placeholder: "E-mail",
             required: true,
             value: email || "",
+            pattern: EMAIL_PATTERN,
             onChange: (evt) => {
                 setIsError(false);
                 setIsSuccess(false);
                 setEmail(evt.target.value);
-                validateEmail(evt.target.value);
+                validateEmail(evt.target);
+                setEmailFormError(evt.target.validationMessage || " ")
             },
+            errorMesage: emailFormError,
             key: 2
         }]
 
     useEffect(() => {
         setUserName(currentUser.name);
         setEmail(currentUser.email);
+        setEmailFormError(" ")
     }, []);
 
     function handleSubmit(e) {
@@ -83,7 +90,7 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
             isSuccess={isSuccess}
             isEdit={isEdit}
         >
-            {inputs.map(({ type, name, id, minLength, maxLength, placeholder, required, value, onChange, key }) => {
+            {inputs.map(({ type, name, id, minLength, maxLength, placeholder, required, value, onChange, key, pattern }) => {
                 return <div className="profile__line" key={key}>
                     <div className="profile__cell-name">{placeholder}</div>
                     <input
@@ -98,8 +105,10 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
                         value={value}
                         onChange={onChange}
                         key={key + 1}
+                        pattern={pattern}
                     />
                 </div>
+                
             })
             }
         </ProfileForm>

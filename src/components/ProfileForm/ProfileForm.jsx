@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 
-function ProfileForm({children, setIsError, isError, onLogout, onSubmit, setIsSucces, isSuccess, isEdit }) {
+function ProfileForm({children, setIsError, isError, onLogout, onSubmit, setIsSucces, isSuccess, isEdit, isValid }) {
 
     const currentUser = useContext(CurrentUserContext);
 
@@ -22,7 +22,7 @@ function ProfileForm({children, setIsError, isError, onLogout, onSubmit, setIsSu
                     {children}
                 {!isSuccess ? "" : <span className="profile__message">Данные успешно сохранены</span>}
                 {!isError ? "" : <span className="profile__message_error">При обновлении профиля произошла ошибка</span>}
-                {isEdit && !isSuccess ? <button className="profile__save-button" onClick={onSubmit} type="unabled">Сохранить</button> : 
+                {isEdit && !isSuccess ? <button className="profile__save-button" onClick={onSubmit} disabled={isError ? true : false} >Сохранить</button> : 
                 <button className="profile__edit" type="submit" >Редактировать</button>&&<button className="profile__logout" type="button" onClick={onLogout}>Выйти из аккаунта</button>
     }
                 </form>

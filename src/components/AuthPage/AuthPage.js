@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from '../../images/logo.svg';
 import { useEffect } from "react";
 
-function AuthPage({ name, title, children, buttonTitle, onSubmit, isSend, setIsError, isError }) {
+function AuthPage({ name, title, children, buttonTitle, onSubmit, isSend, setIsError, isError, isValid }) {
 
     useEffect(() => {
         setIsError(false)
@@ -26,8 +26,8 @@ function AuthPage({ name, title, children, buttonTitle, onSubmit, isSend, setIsE
                     onSubmit={onSubmit}>
                     {children}
                     {!isError ? "" : <span className="login__error">Что-то пошло не так...</span>}
-                    <button className={isError ? `login__button login__button_disabled login__button_type_${name}` : `login__button login__button_type_${name}`}
-                        disabled={isError ? true : false}
+                    <button className={'login__button'}
+                        disabled={isValid}
                         type="submit"> {isSend ? '...' : buttonTitle} </button>
                     {name === "register" ?
                         <span className="login__note">Уже зарегистрированы? <Link to={"/signin"} className="login__link"> Войти </Link> </span>
