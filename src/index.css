@@ -108,6 +108,7 @@
 @import url(./components/Login/__title/login__title.css);
 
 @import url(./components/Profile/Profile.css);
+@import url(./components/Profile/__buttons/profile__buttons.css);
 @import url(./components/Profile/__cell-content/profile__cell-content.css);
 @import url(./components/Profile/__cell-name/profile__cell-name.css);
 @import url(./components/Profile/__edit/profile__edit.css);
@@ -116,8 +117,14 @@
 @import url(./components/Profile/__logout/profile__logout.css);
 @import url(./components/Profile/__table/profile__table.css);
 @import url(./components/Profile/__save-button/profile__save-button.css);
+@import url(./components/Profile/__save-button/_disable/profile__save-button_disable.css);
 @import url(./components/Profile/__message/profile__message.css);
-@import url(./components/Profile/__buttons/profile__buttons.css);
+@import url(./components/Profile/__message/_error/profile__message_error.css);
+@import url(./components/Profile/__input/profile__input.css);
+@import url(./components/Profile/__error/profile__error.css);
+
+@import url(./components/Search/__error/search__error.css);
+@import url(./components/Search/__error/_active/search__error_active.css);
 
 @import url(./components/NotFound/NotFound.css);
 @import url(./components/NotFound/__button/notfound__button.css);

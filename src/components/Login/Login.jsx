@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react';
 import AuthPage from '../AuthPage/AuthPage';
+import { EMAIL_PATTERN } from '../../constants/constants';
 
-function Login({ onLogin }) {
-    const [email, setEmail] = useState(" ");
-    const [password, setPassword] = useState(" ");
+function Login({ onLogin, isSend, isError, setIsError}) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [emailFormError, setEmailFormError] = useState(" ");
     const [passwordFormError, setPasswordFormError] = useState(" ");
-
+    
+    function isFormValid() {
+        return !(emailFormError.length === 1 && 
+        passwordFormError.length === 1 && 
+        email.length !== 0 && 
+        password.length !== 0);
+    }
+    
     useEffect(() => {
         setEmail(" ");
         setPassword("");
         setEmailFormError(" ");
-        setPasswordFormError(" ")
+        setPasswordFormError(" ");
     }, []);
 
     const inputs =
@@ -22,7 +30,9 @@ function Login({ onLogin }) {
             placeholder: "E-mail",
             required: true,
             value: email || " ",
-            onChange: evt => {
+            pattern: EMAIL_PATTERN,
+            onChange: (evt) => {
+                setIsError(false)
                 setEmail(evt.target.value);
                 setEmailFormError(evt.target.validationMessage || " ")
             },
@@ -36,7 +46,8 @@ function Login({ onLogin }) {
             placeholder: "Пароль",
             required: true,
             value: password || "",
-            onChange: evt => {
+            onChange: (evt) => {
+                setIsError(false)
                 setPassword(evt.target.value);
                 setPasswordFormError(evt.target.validationMessage || " ")
             },
@@ -56,10 +67,14 @@ function Login({ onLogin }) {
     return (< AuthPage
         name="login"
         title="Рады видеть!"
-        titleButton="Войти"
+        buttonTitle="Войти"
         onSubmit={handleLogin}
+        isSend={isSend}
+        setIsError={setIsError}
+        isError={isError}
+        isValid={isFormValid()}
     >
-        {inputs.map(({ type, name, id, placeholder, required, value, onChange, errorMesage, key }) => {
+        {inputs.map(({ type, name, id, placeholder, required, value, onChange, errorMesage, key, pattern}) => {
             return <div key={key}>
                 <div className="login__subtitle">{placeholder}</div>
                 <input
@@ -72,6 +87,7 @@ function Login({ onLogin }) {
                     value={value}
                     onChange={onChange}
                     key={key + 1}
+                    pattern={pattern}
                 />
                 <div className="login__error" key={key + 2}>{errorMesage || " "}</div>
             </div>

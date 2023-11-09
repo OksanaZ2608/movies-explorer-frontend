@@ -13,11 +13,7 @@
     align-self: center;
     border: none;
     justify-content: center;
-    margin-top: 223px;
-}
-
-.profile__save-button:hover {
-    opacity: .8;
+    /* margin-top: 220px; */
 }
 
 .profile__save-button:disabled {

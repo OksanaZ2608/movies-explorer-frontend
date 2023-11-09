@@ -1,7 +1,9 @@
 .profile__table {
     margin: 0 auto;
     width: 410px;
+    min-height: 227px;
 }
+
 
 @media screen and (max-width:420px) {
     .profile__table {

@@ -1,23 +1,36 @@
 import { useState } from 'react';
 import AuthPage from '../AuthPage/AuthPage';
+import { EMAIL_PATTERN, USERNAME_PATTERN } from '../../constants/constants';
 
-function Register({ onRegister }) {
+function Register({ onRegister, isSend, isError, setIsError}) {
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
     const [nameFormError, setNameFormError] = useState(" ");
     const [emailFormError, setEmailFormError] = useState(" ");
     const [passwordFormError, setPasswordFormError] = useState(" ");
 
+    function isFormValid() {
+        return !(nameFormError.length === 1 && 
+        emailFormError.length === 1 && 
+        passwordFormError.length === 1 && 
+        userName.length !== 0 && 
+        email.length !== 0 && 
+        password.length !== 0);
+    }
+
     const inputs =
         [{
-            type: "userName",
-            name: "userName",
-            id: "userName",
+            type: "text",
+            name: "username",
+            id: "username",
             placeholder: "Имя",
             required: true,
             value: userName || "",
-            onChange: evt => {
+            pattern: USERNAME_PATTERN,
+            onChange: (evt) => {
+                setIsError(false)
                 setUserName(evt.target.value);
                 setNameFormError(evt.target.validationMessage || " ")
             },
@@ -31,7 +44,9 @@ function Register({ onRegister }) {
             placeholder: "E-mail",
             required: true,
             value: email || "",
-            onChange: evt => {
+            pattern: EMAIL_PATTERN,
+            onChange: (evt) => {
+                setIsError(false)
                 setEmail(evt.target.value);
                 setEmailFormError(evt.target.validationMessage || " ")
             },
@@ -45,7 +60,8 @@ function Register({ onRegister }) {
             placeholder: "Пароль",
             required: true,
             value: password || "",
-            onChange: evt => {
+            onChange: (evt) => {
+                setIsError(false)
                 setPassword(evt.target.value);
                 setPasswordFormError(evt.target.validationMessage || " ")
             },
@@ -58,20 +74,25 @@ function Register({ onRegister }) {
         e.preventDefault();
 
         onRegister({
-            setUserName: setUserName,
+            username: userName,
             email: email,
             password: password
         })
     }
 
+
     return (
         < AuthPage
             name="register"
             title="Добро пожаловать!"
-            titleButton="Зарегистрироваться"
+            buttonTitle="Зарегистрироваться"
             onSubmit={handleRegister}
+            isSend={isSend}
+            setIsError={setIsError}
+            isError={isError}
+            isValid={isFormValid()}
         >
-            {inputs.map(({ type, name, id, placeholder, required, value, onChange, errorMesage, key }) => {
+            {inputs.map(({ type, name, id, placeholder, required, value, onChange, errorMesage, key, pattern}) => {
                 return <div key={key}>
                     <div className="login__subtitle">{placeholder}</div>
                     <input
@@ -84,12 +105,14 @@ function Register({ onRegister }) {
                         value={value}
                         onChange={onChange}
                         key={key + 1}
+                        pattern = {pattern}
                     />
                     <div className="login__error" key={key + 2}>{errorMesage || " "}</div>
+
                 </div>
             })
             }
         </AuthPage >)
 }
 
-export default Register;
+export default Register
