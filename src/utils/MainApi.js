@@ -1,6 +1,10 @@
+import { API_URL } from "../constants/constants";
+import { IMAGE_URL } from "../constants/constants";
+
 class MainApi {
     constructor(options) {
         this._url = options.baseUrl;
+        this._imageurl = options.imageUrl;
     }
 
     _getResponseData(res) {
@@ -100,9 +104,9 @@ class MainApi {
                 duration: data.duration,
                 year: data.year,
                 description: data.description,
-                image: `https://api.nomoreparties.co${data.image.url}`,
+                image: `${this._imageurl}${data.image.url}`,
                 trailerLink: data.trailerLink,
-                thumbnail: `https://api.nomoreparties.co${data.image.formats.thumbnail.url}`,
+                thumbnail: `${this._imageurl}${data.image.formats.thumbnail.url}`,
                 movieId: data.id,
                 nameRU: data.nameRU,
                 nameEN: data.nameEN
@@ -124,7 +128,8 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-    baseUrl: 'https://api.oksanamovies.nomoredomainsrocks.ru',
+    baseUrl: `${API_URL}`,
+    imageUrl: `${IMAGE_URL}`,
 })
 
 export default mainApi;

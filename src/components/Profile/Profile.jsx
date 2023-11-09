@@ -9,8 +9,14 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
     const [isEdit, setIsEdit] = useState(false);
     const [emailFormError, setEmailFormError] = useState(" ");
 
+    function isFormValid() {
+        return !(emailFormError.length === 1 &&
+            userName.length !== 0 &&
+            email.length !== 0);
+    }
+
     function validateEmail(target) {
-        if (currentUser.email === target.value){
+        if (currentUser.email === target.value) {
             setIsEdit(false)
         } else {
             setIsEdit(true)
@@ -89,6 +95,7 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
             setIsSucces={setIsSuccess}
             isSuccess={isSuccess}
             isEdit={isEdit}
+            isValid={isFormValid()}
         >
             {inputs.map(({ type, name, id, minLength, maxLength, placeholder, required, value, onChange, key, pattern }) => {
                 return <div className="profile__line" key={key}>
@@ -108,7 +115,7 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
                         pattern={pattern}
                     />
                 </div>
-                
+
             })
             }
         </ProfileForm>
