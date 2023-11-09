@@ -12,7 +12,7 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
 
     function isFormValid() {
         return !(emailFormError.length === 1 &&
-            userName.length !== 0 &&
+            userName.length > 1 &&
             email.length !== 0);
     }
 
