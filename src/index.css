@@ -120,6 +120,8 @@
 @import url(./components/Profile/__save-button/_disable/profile__save-button_disable.css);
 @import url(./components/Profile/__message/profile__message.css);
 @import url(./components/Profile/__message/_error/profile__message_error.css);
+@import url(./components/Profile/__input/profile__input.css);
+@import url(./components/Profile/__error/profile__error.css);
 
 @import url(./components/Search/__error/search__error.css);
 @import url(./components/Search/__error/_active/search__error_active.css);

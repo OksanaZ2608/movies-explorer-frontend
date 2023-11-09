@@ -8,6 +8,7 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
     const [email, setEmail] = useState("");
     const [isEdit, setIsEdit] = useState(false);
     const [emailFormError, setEmailFormError] = useState(" ");
+    const [nameFormError, setNameFormError] = useState(" ");
 
     function isFormValid() {
         return !(emailFormError.length === 1 &&
@@ -48,8 +49,9 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
                 setIsSuccess(false);
                 setUserName(evt.target.value);
                 validateUserName(evt.target.value);
+                setNameFormError(evt.target.validationMessage || " ");
             },
-            errorMesage: '',
+            errorMesage: nameFormError,
             key: 1
         },
         {
@@ -97,25 +99,28 @@ function Profile({ setIsError, isError, onLogout, onUpdateUser, isSuccess, setIs
             isEdit={isEdit}
             isValid={isFormValid()}
         >
-            {inputs.map(({ type, name, id, minLength, maxLength, placeholder, required, value, onChange, key, pattern }) => {
-                return <div className="profile__line" key={key}>
-                    <div className="profile__cell-name">{placeholder}</div>
-                    <input
-                        className="profile__cell-content"
-                        type={type}
-                        id={id}
-                        minLength={minLength}
-                        maxLength={maxLength}
-                        name={name}
-                        placeholder={placeholder}
-                        required={required}
-                        value={value}
-                        onChange={onChange}
-                        key={key + 1}
-                        pattern={pattern}
-                    />
-                </div>
+            {inputs.map(({ type, name, id, minLength, maxLength, placeholder, required, value, onChange, key, pattern, errorMesage }) => {
+                return <div className="profile__input" key={key}>
+                    <div className="profile__line">
+                        <div className="profile__cell-name">{placeholder}</div>
+                        <input
+                            className="profile__cell-content"
+                            type={type}
+                            id={id}
+                            minLength={minLength}
+                            maxLength={maxLength}
+                            name={name}
+                            placeholder={placeholder}
+                            required={required}
+                            value={value}
+                            onChange={onChange}
+                            key={key + 1}
+                            pattern={pattern}
+                        />
 
+                    </div>
+                    <span className="profile__error" key={key + 2}>{errorMesage || " "}</span>
+                </div>
             })
             }
         </ProfileForm>
